@@ -1,0 +1,20 @@
+
+<div class="sticky">
+    <app-header ></app-header>
+    </div>
+    <div *ngIf='noOrderBtn'>
+        <h1>No orders found yet!!</h1>
+    </div>
+        <div style="width:93%;margin-left: 3%;" *ngFor='let prod of orderList'>    
+        <mat-card style="background-color:gainsboro;text-align: center;" >
+        <h1><b>Ordered On:- {{prod.orderDate}}</b></h1>
+       <h3><b>{{prod.orderedProd.name}}</b></h3>
+       <img src={{prod.orderedProd.imagePath}} alt="imagenotfound" style="height:100px;width:100px;">
+       <div style="width:80%;margin:0 auto">
+        <h3><b>Price:{{prod.orderedProd.price}}</b></h3>
+        <h5><b>Description:- {{prod.orderedProd.productDescription}}</b></h5>
+    </div>
+    </mat-card>
+    <br/>
+</div>
+

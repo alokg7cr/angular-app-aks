@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-loader *ngIf="isLoading"></app-loader>
+
+    <app-header></app-header>
+
+    <div class="login-wrapper">
+        <mat-card class="box">
+            <mat-card-header>
+                <div class=" image" >
+                  <img style='height:140px;' src="assets/user_login.jpg"  alt="User Image" />
+              </div>
+              <h1 style="color: darkolivegreen;"><b>Login</b></h1>
+              </mat-card-header>
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email/>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required/>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="emailInput.invalid && passwordInput.invalid" style="margin-left:35%;">Login</button>
+  </form>
+    </mat-card>
+    
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <span>
+      <a routerLink="/homepage">Ekart</a>
+    </span>
+    <span class="spacer"></span>
+    <ul>
+      <li *ngIf="userIsAuthenticated">
+            <button matBadge="{{badgecount}}" matBadgeColor="warn" [matBadgeHidden]="badgecount<=0" class="material-icons" style="border-radius:5px;" (click)="cartProductsList()">
+                shopping_cart
+            </button>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/" routerLinkActive="mat-accent">Login</a>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button  routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+      </li>
+      <li *ngIf="userIsAuthenticated">
+          <button (click)='orderDetail()' class="material-icons" style="margin-left: 10px;">
+                assignment_turned_in
+          </button>
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <button mat-button  style="color: white;" (click)="onLogout()">Logout</button>
+      </li>
+    </ul>
+  </mat-toolbar>
+  

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-client-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-client
+  template:
+    metadata:
+      labels:
+        app: angular-client
+    spec:
+      containers:
+        - name: angular-client
+          image: alokg7cr/angular-client
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-client-srv
+spec:
+  selector:
+    app: angular-client
+  ports:
+    - name: angular-client
+      protocol: TCP
+      port: 4200
+      targetPort: 4200
