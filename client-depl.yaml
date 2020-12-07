@@ -1,33 +1,33 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: angular-app-ci-depl
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: angular-app-ci
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: angular-deployment 
+spec: 
+  selector: 
+    matchLabels: 
+      app: angular 
+  replicas: 1 # tells deployment to run 2 pods matching the template 
   template:
-    metadata:
-      labels:
-        app: angular-app-ci
-    spec:
-      containers:
-      - name: angular-app-ci
-        image: alokg7cr/angular-app-ci
-        ports:
+    metadata: 
+      labels: 
+        app: angular 
+    spec: 
+      containers: 
+      - name: angular 
+        image: alokg7cr/angular-app:#{Build.BuildId}#
+        ports: 
         - containerPort: 81
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: angular-app-ci-srv
-spec:
-  selector:
-    app: angular-app-ci
-  ports:
-    - name: angular-app-ci
-      protocol: TCP
-      port: 81
-      targetPort: 81
-  type: LoadBalancer
+--- 
+# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service  
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: angular-service 
+spec: 
+  selector: 
+    app: angular 
+  ports: 
+  - protocol: TCP 
+    port: 81
+    targetPort: 81
+  type: LoadBalancer 
