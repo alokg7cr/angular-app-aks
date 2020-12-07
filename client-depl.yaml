@@ -16,7 +16,7 @@ spec:
       - name: angular-app-ci
         image: alokg7cr/angular-app-ci
         ports:
-        - containerPort: 82
+        - containerPort: 81
 ---
 apiVersion: v1
 kind: Service
