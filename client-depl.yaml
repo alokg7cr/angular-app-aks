@@ -13,8 +13,10 @@ spec:
         app: angular-client
     spec:
       containers:
-        - name: angular-client
-          image: alokg7cr/angular-client
+      - name: angular-client
+        image: alokg7cr/angular-client
+        ports:
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
