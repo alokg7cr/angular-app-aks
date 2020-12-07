@@ -28,6 +28,6 @@ spec:
   ports:
     - name: angular-client
       protocol: TCP
-      port: 4200
-      targetPort: 4200
+      port: 81
+      targetPort: 81
   type: LoadBalancer
