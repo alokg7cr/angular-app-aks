@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: angular-ci
-          image: alokg7cr/angular-ci
+          image: alokg7cr/angular-ci:#{Build.BuildId}#
           ports: 
           - containerPort: 81
 ---
