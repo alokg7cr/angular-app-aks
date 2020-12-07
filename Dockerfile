@@ -7,4 +7,4 @@ RUN npm run build --prod
 #stage 2
 FROM nginx:alpine as prod-stage
 COPY --from=build-step-sample /app/dist/SampleShoppingApplication /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 81
